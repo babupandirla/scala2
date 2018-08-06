@@ -1,0 +1,13 @@
+def squareRoot(n: BigDecimal): Stream[BigDecimal] =
+  {
+    def squareRoot(guess: BigDecimal, n: BigDecimal): Stream[BigDecimal] = {
+      Stream.cons(guess, squareRoot(0.5 * (guess + n / guess), n))
+    }
+    squareRoot(1, n)
+} 
+squareRoot(2)                                   
+  val iterations = 5                              
+
+  squareRoot(2)(iterations - 1)                 
+
+squareRoot(2).take(iterations).toList 
